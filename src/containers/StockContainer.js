@@ -26,8 +26,6 @@ class StockContainer extends Component {
       {...stock} />)
 
     
-    
-
     return (
       <div>
         <h2>Stocks</h2>
