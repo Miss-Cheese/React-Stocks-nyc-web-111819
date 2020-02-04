@@ -9,8 +9,9 @@ class PortfolioContainer extends Component {
 
     let stockComponentList = stockList.map(stock => 
         <Stock 
-        managePortfolio={this.props.managePortfolio}
+        stockAction={this.props.stockAction}
         {...stock}
+        key={stock.id}
         />)
 
     return (

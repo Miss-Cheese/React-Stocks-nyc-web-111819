@@ -22,7 +22,7 @@ class StockContainer extends Component {
     let stocksComponentList = stocksList.map(stock => 
       <Stock 
       key={stock.id}
-      managePortfolio={this.props.managePortfolio}
+      stockAction={this.props.stockAction}
       {...stock} />)
 
     

@@ -31,16 +31,18 @@ class MainContainer extends Component {
     })
   }
 
-  managePortfolio = (stockId) => {
-   let targetStock = this.state.stocks.find(stock => stock.id === stockId)
+  buyStock = (stockId) => {
+    let targetStock = this.state.stocks.find(stock => stock.id === stockId)
+    targetStock.inPortfolio = true
+    this.setState({
+      stocks: this.state.stocks
+    })
+  }
 
-    if (targetStock.inPortfolio) {
-      targetStock.inPortfolio = false
-    } else {
-      targetStock.inPortfolio = true
-    }
-
-   this.setState({
+  sellStock = (stockId) => {
+    let targetStock = this.state.stocks.find(stock => stock.id === stockId)
+    targetStock.inPortfolio = false
+    this.setState({
      stocks: this.state.stocks
    })
   }
@@ -63,14 +65,13 @@ class MainContainer extends Component {
               stocks={this.state.stocks} 
               type={this.state.type}
               sort={this.state.sort}
-              managePortfolio={this.managePortfolio}
+              stockAction={this.buyStock}
               />
-
             </div>
             <div className="col-4">
 
               <PortfolioContainer
-              managePortfolio={this.managePortfolio}
+              stockAction={this.sellStock}
               stocks={this.state.stocks}
               />
             </div>
